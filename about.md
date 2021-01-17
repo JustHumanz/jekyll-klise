@@ -6,7 +6,7 @@ excerpt: Hello peeps, I'm student of computer science from Banyuwangi, living in
 comments: false
 ---
 
-i'm just human ._. 
+Are you humanz?
 
 **Contact ✨**
 
