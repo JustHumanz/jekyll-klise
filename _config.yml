@@ -4,7 +4,7 @@ description: >- # site description
   Just Humanz blog
 lang: en-US # default lang
 timezone: Asia/Jakarta # set your timezone
-image: https://yt3.ggpht.com/ytc/AAUvwnjsJfcixUjikXDieEp8GEvC5FAW4sgCUPJMxlTn8Q=s800-c-k-c0x00ffffff-no-rj # This image used for Open Graph more info https://ogp.me/
+image: https://yt3.ggpht.com/ytc/AAUvwnjsJfcixUjikXDieEp8GEvC5FAW4sgCUPJMxlTn8Q=s300-c-k-c0x00ffffff-no-rj # This image used for Open Graph more info https://ogp.me/
 repo: https://github.com/piharpi/jekyll-klise # site repo [optional]
 mode: dark # default theme "dark" | "light"
 
@@ -18,7 +18,7 @@ author:
   twitter: Aldin_Py # twitter username
   facebook: facebook_username # facebook username
   email: Aldinsetiawan99@Gmail.com # email adress
-  avatar: https://yt3.ggpht.com/ytc/AAUvwnjsJfcixUjikXDieEp8GEvC5FAW4sgCUPJMxlTn8Q=s800-c-k-c0x00ffffff-no-rj # change with your own avatar
+  avatar: https://yt3.ggpht.com/ytc/AAUvwnjsJfcixUjikXDieEp8GEvC5FAW4sgCUPJMxlTn8Q=s300-c-k-c0x00ffffff-no-rj # change with your own avatar
 
 # URL settings
 url: "https://humanz.moe" #
