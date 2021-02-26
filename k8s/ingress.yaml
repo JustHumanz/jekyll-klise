@@ -14,5 +14,4 @@ spec:
       paths:
       - backend:
           serviceName: humanz-blog
-          servicePort: 4000
-  serviceAccountName: gitlab-runner-admin        
+          servicePort: 4000        
