@@ -21,7 +21,7 @@ build web:
     - docker
 
 deploy prod:
-  image: dtzar/helm-kubectl
+  image: bitnami/kubectl:latest
   stage: deploy
   only:
     - master
@@ -29,13 +29,7 @@ deploy prod:
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker info  
-    - kubectl config set-cluster k8s --server="${SERVER}"
-    - kubectl config set clusters.k8s.certificate-authority-data ${CERTIFICATE_AUTHORITY_DATA}
-    - kubectl config set-credentials gitlab --token="${USER_TOKEN}"
-    - kubectl config set-context default --cluster=k8s --user=gitlab
-    - kubectl config use-context default
-    - helm init --client-only    
   script:
-    - kubectl apply -f k8s/ -n humanz-blog
+    - kubectl apply -f k8s/
   tags:
     - k8s  
