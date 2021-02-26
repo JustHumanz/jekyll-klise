@@ -25,11 +25,11 @@ deploy prod:
   stage: deploy
   only:
     - master
-  when: manual
-  before_script:
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - docker info  
+#  before_script:
+#    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+#    - docker info  
   script:
     - kubectl apply -f k8s/
   tags:
     - k8s  
+  when: manual    
