@@ -19,7 +19,7 @@ deploy:
   image: lwolf/helm-kubectl-docker:latest
   stage: deploy
   script:
-    - echo ${CONF} | base64 > ~/.kube/config
+    - echo ${CONF} | base64 -d > ~/.kube/config
     - kubectl rollout restart deployment/humanz-blog
   only:
     - master    
