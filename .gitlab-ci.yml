@@ -1,0 +1,31 @@
+stage:
+  - build
+  - deploy
+
+build:
+  image: docker:latest
+  stage: build
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE" .
+    - docker push "$CI_REGISTRY_IMAGE"
+  only:
+    - master
+
+deploy:
+  image: bitnami/kubectl:latest
+  stage: deploy
+  script:
+    - USER_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+    - CERTIFICATE_AUTHORITY_DATA=$(cat /var/run/secrets/kubernetes.io/serviceaccount/ca.crt | base64 -i -w0 -)
+    - kubectl config set-cluster k8s --server="https://kubernetes.default.svc"
+    - kubectl config set clusters.k8s.certificate-authority-data ${CERTIFICATE_AUTHORITY_DATA}
+    - kubectl config set-credentials gitlab --token="${USER_TOKEN}"
+    - kubectl config set-context default --cluster=k8s --user=gitlab
+    - kubectl config use-context default
+    - kubectl set image deployment humanz-blog web=${CI_REGISTRY}/user/repo/${CI_PROJECT_PATH_SLUG}:${CI_COMMIT_SHORT_SHA} --kubeconfig ./config --namespace default
+  only:
+    - master    
