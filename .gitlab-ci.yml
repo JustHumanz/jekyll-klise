@@ -25,7 +25,7 @@ deploy:
     - mkdir -p $HOME/.kube
     - echo -n ${KUBE_CONFIG} | base64 -d > $HOME/.kube/config
     - kubectl cluster-info
-    - kubectl rollout restart deployment/humanz-blog
+    - kubectl rollout restart deployment/humanz-blog -n default
   only:
     - master    
   tags:
