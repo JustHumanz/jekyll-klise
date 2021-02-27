@@ -19,14 +19,8 @@ deploy:
   image: lwolf/helm-kubectl-docker:latest
   stage: deploy
   script:
-    - USER_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
-    - CERTIFICATE_AUTHORITY_DATA=$(cat /var/run/secrets/kubernetes.io/serviceaccount/ca.crt | base64 -i -w0 -)
-    - kubectl config set-cluster k8s --server=${SERVER}
-    - kubectl config set clusters.k8s.certificate-authority-data ${CERTIFICATE_AUTHORITY_DATA}
-    - kubectl config set-credentials gitlab --token="${USER_TOKEN}"
-    - kubectl config set-context default --cluster=k8s --user=gitlab
-    - kubectl config use-context default
-    - kubectl set image deployment humanz-blog web=${CI_REGISTRY}/user/repo/${CI_PROJECT_PATH_SLUG}:${CI_COMMIT_SHORT_SHA}
+    - echo ${CONF} | base64 > ~/.kube/config
+    - kubectl rollout restart deployment/humanz-blog
   only:
     - master    
   tags:
