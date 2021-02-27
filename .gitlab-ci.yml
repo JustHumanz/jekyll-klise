@@ -16,7 +16,7 @@ build:
     - master
 
 deploy:
-  image: bitnami/kubectl:latest
+  image: lwolf/helm-kubectl-docker:latest
   stage: deploy
   script:
     - USER_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
