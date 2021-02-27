@@ -24,6 +24,7 @@ deploy:
     - chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl
     - mkdir -p $HOME/.kube
     - echo -n ${KUBE_CONFIG} | base64 -d > $HOME/.kube/config
+    - kubectl cluster-info
     - kubectl rollout restart deployment/humanz-blog
   only:
     - master    
