@@ -16,7 +16,7 @@ build:
     - master
 
 deploy:
-  image: d3fk/kubectl
+  image: d3fk/kubectl:latest
   stage: deploy
   script:
     - USER_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
