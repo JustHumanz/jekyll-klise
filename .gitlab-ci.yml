@@ -29,3 +29,5 @@ deploy:
     - kubectl set image deployment humanz-blog web=${CI_REGISTRY}/user/repo/${CI_PROJECT_PATH_SLUG}:${CI_COMMIT_SHORT_SHA} --kubeconfig ./config --namespace default
   only:
     - master    
+  tags:
+    - k8s    
