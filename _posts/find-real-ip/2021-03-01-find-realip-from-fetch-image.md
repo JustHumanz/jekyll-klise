@@ -24,14 +24,11 @@ nah disana kita masukan url dari web service kita,disini saya pakai `https://cdn
 ![danbooru.donmai.us source](https://raw.githubusercontent.com/JustHumanz/jekyll-klise/master/assets/img/Humanz/danbooru-wangyy.png)  
 tunggu beberapa saat,lalu coba baca lognya lagi  
 ![danbooru.donmai.us result](https://raw.githubusercontent.com/JustHumanz/jekyll-klise/master/assets/img/Humanz/danbooru-result.png)  
-nah itu terlihat bahawa Danbooru melakukan http request ke `web service` saya,dan jika diperhatikan lagi ip tersebut berasal dari `147.135.10.29` yang dimana ip `147.135.10.29` adalah ip real dari website danbooru,untuk pengetesan saya akan melakukan Curl dengan header host danbooru tetapi targetnya `147.135.10.29`  
+itu terlihat bahawa Danbooru melakukan http request ke `web service` saya,dan jika diperhatikan lagi ip tersebut berasal dari `147.135.10.29` yang dimana ip `147.135.10.29` adalah ip real dari website danbooru,untuk pengetesan saya akan langsung access danbooru by ip address  
 
-command curl yang saya gunakan   
-`curl -I -H 'Host: danbooru.donmai.us' https://147.135.10.29 -k`   
-dan hasilnya   
-![danbooru-curl](https://raw.githubusercontent.com/JustHumanz/jekyll-klise/master/assets/img/Humanz/danbooru-curl.png)  
 
-and bingo,status codenya 200 ~~daijobu~~ ok 
+![danbooru.donmai.us access by ip](https://raw.githubusercontent.com/JustHumanz/jekyll-klise/master/assets/img/Humanz/danbooru-byip.png)  
+dan bingo,ip `147.135.10.29` adalah real ip dari danbooru.donmai.us
 
 
 
