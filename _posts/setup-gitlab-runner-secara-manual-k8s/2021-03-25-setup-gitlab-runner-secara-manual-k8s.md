@@ -9,7 +9,7 @@ categories: cicd,gitlab,k8s,devops
   Nyanpasuu
 </p>
 Setup gitlab runner secara manual di k8s,seperti judulnya kali ini saya akan membahas cara setup runner secara manual,tapi kenapa manual? 
-seperti yang terlampir di [sysadmin survival guild](https://techbeacon.com/devops/how-stay-relevant-devops-era-sysadmins-survival-guide) 
+seperti yang terlampir di [sysadmin survival guide](https://techbeacon.com/devops/how-stay-relevant-devops-era-sysadmins-survival-guide) 
 `You cannot automate what you can’t understand` so kita langsung ke pembahasan saja  
 
 pertama cari gitlab token dan register urlnya yang terletak di `repo > settings > CI/CD > Runners`  
@@ -34,7 +34,7 @@ dan bingo,runner sudah terpasang
 
 #### Optional
 
-jika ingin menambahkan `tags` di runner bisa edit value.yaml dan lalukan `upgrade` via heml,
+jika ingin menambahkan `tags` di runner bisa edit value.yaml dan lalukan `upgrade` via helm,
 pertama tambahkan `tags` yang diinginkan,contohnya seperti ini   
 ![done_runner](https://raw.githubusercontent.com/JustHumanz/jekyll-klise/master/assets/img/runner/add-tags.png)  
 lalu lakukan `upgrade` dengan command `helm upgrade gitlab-runner -f ./values.yaml gitlab/gitlab-runner` kemudian cek kembali di gitlab runners  
